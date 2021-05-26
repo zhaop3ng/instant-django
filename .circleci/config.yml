@@ -3,7 +3,7 @@ version: 2.1
 defaults: &defaults
   docker:
     - image: circleci/python:3.5.4
-  working_directory: ~/project
+  working_directory: ~/
 
 prepare_venv: &prepare_venv
   run:
@@ -25,7 +25,7 @@ jobs:
     working_directory: ~/project/model
     steps:
       - checkout:
-          path: ~/project
+          path: ~/
       - run:
           name: Run tests with Python 3.5
           command: |
