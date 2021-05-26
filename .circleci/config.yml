@@ -10,7 +10,7 @@ prepare_venv: &prepare_venv
     name: Create venv
     command: |
       python -m venv env
-      source env\Scripts\activate
+      env\Scripts\activate
 
 jobs:
   test_regression_model_py37:
