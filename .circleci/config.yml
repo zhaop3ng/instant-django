@@ -3,7 +3,6 @@ version: 2.1
 defaults: &defaults
   docker:
     - image: circleci/python:3.7.0
-  working_directory: $PWD
 
 prepare_venv: &prepare_venv
   run:
@@ -11,21 +10,18 @@ prepare_venv: &prepare_venv
     command: |
       python -m venv env
       env\Scripts\activate
-      sudo pip install --upgrade pip
-      pip install -r requirements.txt
 
 jobs:
   test_regression_model_py37:
     docker:
       - image: circleci/python:3.7.0
     steps:
-      - checkout:
-          path: $PWD
+
       - run:
           name: Run tests with Python 3.7.0
           command: |
-            
-            
+            sudo pip install --upgrade pip
+            pip install -r requirements.txt
             manage.py migrate
             manage.py createsuperuser 
             manage.py runserver
