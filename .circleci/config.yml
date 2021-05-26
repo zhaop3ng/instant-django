@@ -1,0 +1,5 @@
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.8
+      - image: circleci/postgres:9.4
