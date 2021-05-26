@@ -9,7 +9,7 @@ prepare_venv: &prepare_venv
     name: Create venv
     command: |
       python -m venv env
-      env\Scripts\activate
+      source env/bin/activate
 
 jobs:
   test_regression_model_py37:
@@ -23,9 +23,8 @@ jobs:
           command: |
             sudo pip install --upgrade pip
             pip install -r requirements.txt
-            manage.py migrate
-            manage.py createsuperuser 
-            manage.py runserver
+            python manage.py migrate
+            python manage.py createsuperuser 
 workflows:
   version: 2
   test-all:
