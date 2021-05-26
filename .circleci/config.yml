@@ -3,7 +3,6 @@ version: 2.1
 defaults: &defaults
   docker:
     - image: circleci/python:3.5.4
-  working_directory: ~/
 
 prepare_venv: &prepare_venv
   run:
@@ -22,10 +21,9 @@ jobs:
   test_regression_model_py35:
     docker:
       - image: circleci/python:3.5.4
-    working_directory: ~/project/model
     steps:
       - checkout:
-          path: ~/
+          path: $PWD
       - run:
           name: Run tests with Python 3.5
           command: |
