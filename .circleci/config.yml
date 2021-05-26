@@ -14,8 +14,8 @@ jobs:
       - run:
           name: Run tests with Python 3.7.0
           command: |
-            python -m venv env
-            env\Scripts\activate
+            python3 -m venv env
+            source env/bin/activate
             sudo pip install --upgrade pip
             pip install -r requirements.txt
             python manage.py migrate
