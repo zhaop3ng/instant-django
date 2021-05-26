@@ -11,7 +11,6 @@ prepare_venv: &prepare_venv
     command: |
       python -m venv env
       source env\Scripts\activate
-      pip install --upgrade pip
 
 jobs:
   test_regression_model_py37:
@@ -23,7 +22,6 @@ jobs:
       - run:
           name: Run tests with Python 3.7.0
           command: |
-            sudo pip install --upgrade pip
             pip install -r requirements.txt
             manage.py migrate
             manage.py createsuperuser 
