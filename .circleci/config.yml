@@ -4,8 +4,6 @@ defaults: &defaults
   docker:
     - image: circleci/python:3.7.0
 
-      
-
 jobs:
   test_regression_model_py37:
     docker:
@@ -17,7 +15,7 @@ jobs:
           name: Run tests with Python 3.7.0
           command: |
             python -m venv env
-            source env/bin/activate
+            env\Scripts\activate
             sudo pip install --upgrade pip
             pip install -r requirements.txt
             python manage.py migrate
